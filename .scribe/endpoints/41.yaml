@@ -1,0 +1,346 @@
+name: 'Gestion des tarifs de peinture'
+description: |-
+
+  APIs pour la gestion des tarifs de peinture
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/painting-prices
+    metadata:
+      groupName: 'Gestion des tarifs de peinture'
+      groupDescription: |-
+
+        APIs pour la gestion des tarifs de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lister tous les tarifs de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer PD15Zahav6fc6db8gE4kV3e'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/painting-prices
+    metadata:
+      groupName: 'Gestion des tarifs de peinture'
+      groupDescription: |-
+
+        APIs pour la gestion des tarifs de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Ajouter un tarif de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      param_1:
+        name: param_1
+        description: ''
+        required: true
+        example: 19377057.21444
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      param_2:
+        name: param_2
+        description: ''
+        required: true
+        example: 469.34
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      hourly_rate_id:
+        name: hourly_rate_id
+        description: 'The <code>id</code> of an existing record in the hourly_rates table.'
+        required: true
+        example: aspernatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      paint_type_id:
+        name: paint_type_id
+        description: 'The <code>id</code> of an existing record in the paint_types table.'
+        required: true
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      number_paint_element_id:
+        name: number_paint_element_id
+        description: 'The <code>id</code> of an existing record in the number_paint_elements table.'
+        required: true
+        example: dicta
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      param_1: 19377057.21444
+      param_2: 469.34
+      hourly_rate_id: aspernatur
+      paint_type_id: qui
+      number_paint_element_id: dicta
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer E1bDvehPfak4ga68563cZdV'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/painting-prices/{paintingPrice}'
+    metadata:
+      groupName: 'Gestion des tarifs de peinture'
+      groupDescription: |-
+
+        APIs pour la gestion des tarifs de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Afficher un tarif de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      paintingPrice:
+        name: paintingPrice
+        description: ''
+        required: true
+        example: in
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      paintingPrice: in
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer cah6bg8d5D463aeVEPvZf1k'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/painting-prices/{paintingPrice}'
+    metadata:
+      groupName: 'Gestion des tarifs de peinture'
+      groupDescription: |-
+
+        APIs pour la gestion des tarifs de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mettre à jour un tarif de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      paintingPrice:
+        name: paintingPrice
+        description: ''
+        required: true
+        example: reiciendis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      paintingPrice: reiciendis
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      param_1:
+        name: param_1
+        description: ''
+        required: true
+        example: 1783.385181
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      param_2:
+        name: param_2
+        description: ''
+        required: true
+        example: 0.432
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      hourly_rate_id:
+        name: hourly_rate_id
+        description: 'The <code>id</code> of an existing record in the hourly_rates table.'
+        required: true
+        example: nam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      paint_type_id:
+        name: paint_type_id
+        description: 'The <code>id</code> of an existing record in the paint_types table.'
+        required: true
+        example: aut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      number_paint_element_id:
+        name: number_paint_element_id
+        description: 'The <code>id</code> of an existing record in the number_paint_elements table.'
+        required: true
+        example: autem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      param_1: 1783.385181
+      param_2: 0.432
+      hourly_rate_id: nam
+      paint_type_id: aut
+      number_paint_element_id: autem
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6V46b85d3PDka1agcEvehZf'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/painting-prices/{paintingPrice}'
+    metadata:
+      groupName: 'Gestion des tarifs de peinture'
+      groupDescription: |-
+
+        APIs pour la gestion des tarifs de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprimer un tarif de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      paintingPrice:
+        name: paintingPrice
+        description: ''
+        required: true
+        example: error
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      paintingPrice: error
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer EPc6816kfvdV4Zh5aaDb3eg'
+    controller: null
+    method: null
+    route: null
+    custom: []

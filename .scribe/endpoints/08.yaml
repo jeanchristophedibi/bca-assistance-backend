@@ -1,0 +1,335 @@
+name: 'Gestion des genres de véhicules'
+description: |-
+
+  APIs pour la gestion des genres de véhicules
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/vehicle-genres
+    metadata:
+      groupName: 'Gestion des genres de véhicules'
+      groupDescription: |-
+
+        APIs pour la gestion des genres de véhicules
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lister tous les genres de véhicules'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1daE6f683hVeZPa5c4kDbgv'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/vehicle-genres
+    metadata:
+      groupName: 'Gestion des genres de véhicules'
+      groupDescription: |-
+
+        APIs pour la gestion des genres de véhicules
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Créer un nouveau genre de véhicule'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
+        name: code
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: jdtvdumgkuegpvnzigudcfa
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Fugit non consequatur enim in.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      max_mileage_essence_per_year:
+        name: max_mileage_essence_per_year
+        description: ''
+        required: true
+        example: 0.321015
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      max_mileage_diesel_per_year:
+        name: max_mileage_diesel_per_year
+        description: ''
+        required: true
+        example: 4687129.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      code: i
+      label: jdtvdumgkuegpvnzigudcfa
+      description: 'Fugit non consequatur enim in.'
+      max_mileage_essence_per_year: 0.321015
+      max_mileage_diesel_per_year: 4687129.0
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer vac46651ekZdEfPghVab3D8'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/vehicle-genres/{id}'
+    metadata:
+      groupName: 'Gestion des genres de véhicules'
+      groupDescription: |-
+
+        APIs pour la gestion des genres de véhicules
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Afficher un genre de véhicule'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the vehicle genre.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer kZh6DVdcaE5be1fP4vg6a38'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/vehicle-genres/{id}'
+    metadata:
+      groupName: 'Gestion des genres de véhicules'
+      groupDescription: |-
+
+        APIs pour la gestion des genres de véhicules
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mettre à jour un genre de véhicule'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the vehicle genre.'
+        required: true
+        example: ea
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: ea
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: nsguizjvlygfyqdbddiysd
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Et natus molestiae velit veritatis.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      max_mileage_essence_per_year:
+        name: max_mileage_essence_per_year
+        description: ''
+        required: true
+        example: 20428395.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      max_mileage_diesel_per_year:
+        name: max_mileage_diesel_per_year
+        description: ''
+        required: true
+        example: 304587.50765026
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      label: nsguizjvlygfyqdbddiysd
+      description: 'Et natus molestiae velit veritatis.'
+      max_mileage_essence_per_year: 20428395.0
+      max_mileage_diesel_per_year: 304587.50765026
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer h6EZ1b36e4ckDgPVfd8va5a'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/vehicle-genres/{id}'
+    metadata:
+      groupName: 'Gestion des genres de véhicules'
+      groupDescription: |-
+
+        APIs pour la gestion des genres de véhicules
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprimer un genre de véhicule'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the vehicle genre.'
+        required: true
+        example: cumque
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: cumque
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer P5aVZcakvd6E16De34b8ghf'
+    controller: null
+    method: null
+    route: null
+    custom: []

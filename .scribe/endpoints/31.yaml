@@ -1,0 +1,280 @@
+name: 'Gestion des types de dossiers'
+description: |-
+
+  APIs pour la gestion des types de dossiers
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/assignment-types
+    metadata:
+      groupName: 'Gestion des types de dossiers'
+      groupDescription: |-
+
+        APIs pour la gestion des types de dossiers
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lister tous les types de dossiers'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1bdDf66hEV48caZgv3kaeP5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/assignment-types
+    metadata:
+      groupName: 'Gestion des types de dossiers'
+      groupDescription: |-
+
+        APIs pour la gestion des types de dossiers
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Ajouter un type de dossier'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: tbzyuuadfxmblbznvtkdw
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Aspernatur voluptates est doloribus amet ut.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      label: tbzyuuadfxmblbznvtkdw
+      description: 'Aspernatur voluptates est doloribus amet ut.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer e6E5afZvbcDk8aVhg4P136d'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/assignment-types/{assignment_type}'
+    metadata:
+      groupName: 'Gestion des types de dossiers'
+      groupDescription: |-
+
+        APIs pour la gestion des types de dossiers
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Afficher un type de dossier'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      assignment_type:
+        name: assignment_type
+        description: ''
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      assignment_type: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1EDk3aZa6e58v4VP6cbhfdg'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/assignment-types/{assignment_type}'
+    metadata:
+      groupName: 'Gestion des types de dossiers'
+      groupDescription: |-
+
+        APIs pour la gestion des types de dossiers
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mettre à jour un type de dossier'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      assignment_type:
+        name: assignment_type
+        description: ''
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      assignment_type: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: oospdwdcppt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'A quis quaerat ut.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      label: oospdwdcppt
+      description: 'A quis quaerat ut.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 4Zd1cebfkvaEa5DVgP86h63'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/assignment-types/{assignment_type}'
+    metadata:
+      groupName: 'Gestion des types de dossiers'
+      groupDescription: |-
+
+        APIs pour la gestion des types de dossiers
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprimer un type de dossier'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      assignment_type:
+        name: assignment_type
+        description: ''
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      assignment_type: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 5VkvZEgd66D3Pec1f8baa4h'
+    controller: null
+    method: null
+    route: null
+    custom: []

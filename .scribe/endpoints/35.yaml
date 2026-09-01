@@ -1,0 +1,280 @@
+name: "Gestion des types d'autres charges"
+description: |-
+
+  APIs pour la gestion des types d'autres charges
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/other-cost-types
+    metadata:
+      groupName: "Gestion des types d'autres charges"
+      groupDescription: |-
+
+        APIs pour la gestion des types d'autres charges
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Lister tous les types d'autres charges"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6VD1c6bdPa4eE5Zfva3h8gk'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/other-cost-types
+    metadata:
+      groupName: "Gestion des types d'autres charges"
+      groupDescription: |-
+
+        APIs pour la gestion des types d'autres charges
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Ajouter un type d'autre charge"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: lehzkkftkmccwqg
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Officiis dolorem illo et eos.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      label: lehzkkftkmccwqg
+      description: 'Officiis dolorem illo et eos.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 4DZ6ghkEvabfP6a5ecd83V1'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/other-cost-types/{otherCostType}'
+    metadata:
+      groupName: "Gestion des types d'autres charges"
+      groupDescription: |-
+
+        APIs pour la gestion des types d'autres charges
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Afficher un type d'autre charge"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      otherCostType:
+        name: otherCostType
+        description: ''
+        required: true
+        example: voluptas
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      otherCostType: voluptas
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ZeaVPvcb146gk68Ed35fDah'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/other-cost-types/{otherCostType}'
+    metadata:
+      groupName: "Gestion des types d'autres charges"
+      groupDescription: |-
+
+        APIs pour la gestion des types d'autres charges
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Mettre à jour un type d'autre charge"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      otherCostType:
+        name: otherCostType
+        description: ''
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      otherCostType: et
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: uqcrkqfabucfzufrflnmejt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Saepe officia et eligendi sint dolorum in consequatur.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      label: uqcrkqfabucfzufrflnmejt
+      description: 'Saepe officia et eligendi sint dolorum in consequatur.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6Z8eghVED4d5c1a3Pbvfak6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/other-cost-types/{otherCostType}'
+    metadata:
+      groupName: "Gestion des types d'autres charges"
+      groupDescription: |-
+
+        APIs pour la gestion des types d'autres charges
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Supprimer un type d'autre charge"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      otherCostType:
+        name: otherCostType
+        description: ''
+        required: true
+        example: dolore
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      otherCostType: dolore
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer d1bEZ4fh53Dc8VPa6ag6ekv'
+    controller: null
+    method: null
+    route: null
+    custom: []

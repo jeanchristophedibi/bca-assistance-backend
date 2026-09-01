@@ -1,0 +1,608 @@
+name: "Gestion des main-d'œuvre"
+description: |-
+
+  APIs pour la gestion des main-d'œuvre
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/workforces
+    metadata:
+      groupName: "Gestion des main-d'œuvre"
+      groupDescription: |-
+
+        APIs pour la gestion des main-d'œuvre
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Lister toutes les main-d'œuvre"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1akaEP4ZDc86d3vgh5Vfb6e'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/workforces
+    metadata:
+      groupName: "Gestion des main-d'œuvre"
+      groupDescription: |-
+
+        APIs pour la gestion des main-d'œuvre
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Créer une main-d'œuvre"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      shock_id:
+        name: shock_id
+        description: 'The <code>id</code> of an existing record in the shocks table.'
+        required: true
+        example: accusamus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      hourly_rate_id:
+        name: hourly_rate_id
+        description: 'The <code>id</code> of an existing record in the hourly_rates table.'
+        required: true
+        example: molestias
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      with_tax:
+        name: with_tax
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      paint_type_id:
+        name: paint_type_id
+        description: 'The <code>id</code> of an existing record in the paint_types table.'
+        required: true
+        example: nihil
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      workforces:
+        name: workforces
+        description: ''
+        required: true
+        example:
+          - []
+        type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'workforces[].workforce_type_id':
+        name: 'workforces[].workforce_type_id'
+        description: ''
+        required: true
+        example: tempore
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'workforces[].nb_hours':
+        name: 'workforces[].nb_hours'
+        description: ''
+        required: true
+        example: 2028.083866
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'workforces[].discount':
+        name: 'workforces[].discount'
+        description: 'La valeur de value doit être supérieure ou égale à 0. La valeur de value ne peut pas être supérieure à 100.'
+        required: true
+        example: 9
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'workforces[].all_paint':
+        name: 'workforces[].all_paint'
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      shock_id: accusamus
+      hourly_rate_id: molestias
+      with_tax: false
+      paint_type_id: nihil
+      workforces:
+        -
+          workforce_type_id: tempore
+          nb_hours: 2028.083866
+          discount: 9
+          all_paint: true
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer EgcZd4f3k8h6vaPDVea561b'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/workforces/calculate
+    metadata:
+      groupName: "Gestion des main-d'œuvre"
+      groupDescription: |-
+
+        APIs pour la gestion des main-d'œuvre
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Calculer les mains-d'œuvres"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      shock_id:
+        name: shock_id
+        description: 'The <code>id</code> of an existing record in the shocks table.'
+        required: true
+        example: nesciunt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      hourly_rate_id:
+        name: hourly_rate_id
+        description: 'The <code>id</code> of an existing record in the hourly_rates table.'
+        required: true
+        example: quia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      paint_type_id:
+        name: paint_type_id
+        description: 'The <code>id</code> of an existing record in the paint_types table.'
+        required: true
+        example: eos
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      shock_works:
+        name: shock_works
+        description: ''
+        required: true
+        example:
+          - []
+        type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      workforces:
+        name: workforces
+        description: ''
+        required: true
+        example:
+          - []
+        type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'shock_works[].obsolescence_rate':
+        name: 'shock_works[].obsolescence_rate'
+        description: ''
+        required: true
+        example: 455586.256526
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'shock_works[].recovery_amount':
+        name: 'shock_works[].recovery_amount'
+        description: ''
+        required: true
+        example: 17.927776
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'shock_works[].amount':
+        name: 'shock_works[].amount'
+        description: ''
+        required: true
+        example: 245780.247
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'shock_works[].discount':
+        name: 'shock_works[].discount'
+        description: 'La valeur de value doit être supérieure ou égale à 0. La valeur de value ne peut pas être supérieure à 100.'
+        required: true
+        example: 1
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'workforces[].workforce_type_id':
+        name: 'workforces[].workforce_type_id'
+        description: 'The <code>id</code> of an existing record in the workforce_types table.'
+        required: true
+        example: doloribus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'workforces[].nb_hours':
+        name: 'workforces[].nb_hours'
+        description: ''
+        required: true
+        example: 2301.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'workforces[].discount':
+        name: 'workforces[].discount'
+        description: 'La valeur de value doit être supérieure ou égale à 0. La valeur de value ne peut pas être supérieure à 100.'
+        required: true
+        example: 19
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'workforces[].with_tax':
+        name: 'workforces[].with_tax'
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'workforces[].all_paint':
+        name: 'workforces[].all_paint'
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      shock_id: nesciunt
+      hourly_rate_id: quia
+      paint_type_id: eos
+      shock_works:
+        -
+          obsolescence_rate: 455586.256526
+          recovery_amount: 17.927776
+          amount: 245780.247
+          discount: 1
+      workforces:
+        -
+          workforce_type_id: doloribus
+          nb_hours: 2301.0
+          discount: 19
+          with_tax: false
+          all_paint: true
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1ZVDfE6chk5d6gv4e8P3aba'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/workforces/{id}'
+    metadata:
+      groupName: "Gestion des main-d'œuvre"
+      groupDescription: |-
+
+        APIs pour la gestion des main-d'œuvre
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Afficher une main-d'œuvre"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the workforce.'
+        required: true
+        example: repellendus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: repellendus
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer E3Dc1Pd68eagbh4VavfZk65'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/workforces/{id}'
+    metadata:
+      groupName: "Gestion des main-d'œuvre"
+      groupDescription: |-
+
+        APIs pour la gestion des main-d'œuvre
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Mettre à jour une main-d'œuvre"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the workforce.'
+        required: true
+        example: ducimus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: ducimus
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      workforce_type_id:
+        name: workforce_type_id
+        description: 'The <code>id</code> of an existing record in the workforce_types table.'
+        required: true
+        example: ipsum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      hourly_rate_id:
+        name: hourly_rate_id
+        description: 'The <code>id</code> of an existing record in the hourly_rates table.'
+        required: true
+        example: numquam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      paint_type_id:
+        name: paint_type_id
+        description: 'The <code>id</code> of an existing record in the paint_types table.'
+        required: true
+        example: temporibus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      with_tax:
+        name: with_tax
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      nb_hours:
+        name: nb_hours
+        description: ''
+        required: true
+        example: 4.66843
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      discount:
+        name: discount
+        description: 'La valeur de value doit être supérieure ou égale à 0. La valeur de value ne peut pas être supérieure à 100.'
+        required: true
+        example: 19
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      all_paint:
+        name: all_paint
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      workforce_type_id: ipsum
+      hourly_rate_id: numquam
+      paint_type_id: temporibus
+      with_tax: true
+      nb_hours: 4.66843
+      discount: 19
+      all_paint: false
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer aZe64V1kvda8h3Pf65bDEgc'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/workforces/{id}'
+    metadata:
+      groupName: "Gestion des main-d'œuvre"
+      groupDescription: |-
+
+        APIs pour la gestion des main-d'œuvre
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Supprimer une main-d'œuvre"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the workforce.'
+        required: true
+        example: maxime
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: maxime
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer cVgkE1vP8D6afeha3b4Zd65'
+    controller: null
+    method: null
+    route: null
+    custom: []

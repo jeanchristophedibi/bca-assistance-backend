@@ -1,0 +1,302 @@
+name: "Gestion des nombres d'éléments de peinture"
+description: |-
+
+  APIs pour la gestion des nombres d'éléments de peinture
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/number-paint-elements
+    metadata:
+      groupName: "Gestion des nombres d'éléments de peinture"
+      groupDescription: |-
+
+        APIs pour la gestion des nombres d'éléments de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lister tous les éléments de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3EgD6ac8vVaePd451Zbhfk6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/number-paint-elements
+    metadata:
+      groupName: "Gestion des nombres d'éléments de peinture"
+      groupDescription: |-
+
+        APIs pour la gestion des nombres d'éléments de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Ajouter un élément de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: tvpfccciwmmm
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Deleniti rerum reprehenderit exercitationem tenetur sint voluptatibus rerum.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      value:
+        name: value
+        description: 'La valeur de value doit être supérieure ou égale à 0.'
+        required: true
+        example: 82
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      label: tvpfccciwmmm
+      description: 'Deleniti rerum reprehenderit exercitationem tenetur sint voluptatibus rerum.'
+      value: 82
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer V85DEc6hgkaePZa6d34bf1v'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/number-paint-elements/{numberPaintElement}'
+    metadata:
+      groupName: "Gestion des nombres d'éléments de peinture"
+      groupDescription: |-
+
+        APIs pour la gestion des nombres d'éléments de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Afficher un élément de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      numberPaintElement:
+        name: numberPaintElement
+        description: ''
+        required: true
+        example: in
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      numberPaintElement: in
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer e4kcfgP1V8Z6Dadbav36E5h'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/number-paint-elements/{numberPaintElement}'
+    metadata:
+      groupName: "Gestion des nombres d'éléments de peinture"
+      groupDescription: |-
+
+        APIs pour la gestion des nombres d'éléments de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mettre à jour un élément de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      numberPaintElement:
+        name: numberPaintElement
+        description: ''
+        required: true
+        example: reiciendis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      numberPaintElement: reiciendis
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: oaskzrftyvzgbjvdrzngdi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Odio officia minus officiis consequatur adipisci.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      value:
+        name: value
+        description: ''
+        required: true
+        example: 61878304.338928
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      label: oaskzrftyvzgbjvdrzngdi
+      description: 'Odio officia minus officiis consequatur adipisci.'
+      value: 61878304.338928
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 36aedakDcvEV8Phb6f451Zg'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/number-paint-elements/{numberPaintElement}'
+    metadata:
+      groupName: "Gestion des nombres d'éléments de peinture"
+      groupDescription: |-
+
+        APIs pour la gestion des nombres d'éléments de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprimer un élément de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      numberPaintElement:
+        name: numberPaintElement
+        description: ''
+        required: true
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      numberPaintElement: rerum
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer g1ZcP63VfE6bD85haa4dkve'
+    controller: null
+    method: null
+    route: null
+    custom: []

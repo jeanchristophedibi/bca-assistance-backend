@@ -1,0 +1,236 @@
+name: 'Gestion des historiques de paiement'
+description: |-
+
+  APIs pour la gestion des historiques de paiement
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/payment-historics
+    metadata:
+      groupName: 'Gestion des historiques de paiement'
+      groupDescription: |-
+
+        APIs pour la gestion des historiques de paiement
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lister tous les historiques de paiement'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 66DVavcfkZ51aEP3ebh48dg'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/payment-historics
+    metadata:
+      groupName: 'Gestion des historiques de paiement'
+      groupDescription: |-
+
+        APIs pour la gestion des historiques de paiement
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Créer un historique de paiement'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer DEa3P1hb6k4vdfe5VacZ8g6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/payment-historics/{paymentHistoric_id}'
+    metadata:
+      groupName: 'Gestion des historiques de paiement'
+      groupDescription: |-
+
+        APIs pour la gestion des historiques de paiement
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Afficher un historique de paiement'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      paymentHistoric_id:
+        name: paymentHistoric_id
+        description: 'The ID of the paymentHistoric.'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      paymentHistoric_id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer a8vcDfZ63g5E46e1PbVdahk'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/payment-historics/{paymentHistoric}'
+    metadata:
+      groupName: 'Gestion des historiques de paiement'
+      groupDescription: |-
+
+        APIs pour la gestion des historiques de paiement
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      paymentHistoric:
+        name: paymentHistoric
+        description: ''
+        required: true
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      paymentHistoric: 10
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer h3ab66Zv5V1aDPck8dEf4ge'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/payment-historics/{paymentHistoric_id}'
+    metadata:
+      groupName: 'Gestion des historiques de paiement'
+      groupDescription: |-
+
+        APIs pour la gestion des historiques de paiement
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprimer un historique de paiement'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      paymentHistoric_id:
+        name: paymentHistoric_id
+        description: 'The ID of the paymentHistoric.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      paymentHistoric_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer hVbdek3618cE65DPvgaZ4af'
+    controller: null
+    method: null
+    route: null
+    custom: []

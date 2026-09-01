@@ -1,0 +1,280 @@
+name: 'Gestion des documents transmis'
+description: |-
+
+  APIs pour la gestion des documents transmis
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/document-transmitteds
+    metadata:
+      groupName: 'Gestion des documents transmis'
+      groupDescription: |-
+
+        APIs pour la gestion des documents transmis
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lister tous les documents transmis'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Vd566h81aaDb3gevZfcP4Ek'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/document-transmitteds
+    metadata:
+      groupName: 'Gestion des documents transmis'
+      groupDescription: |-
+
+        APIs pour la gestion des documents transmis
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Ajouter un document transmis'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: eragusjrwhultvobt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Et voluptatem magnam id quae.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      label: eragusjrwhultvobt
+      description: 'Et voluptatem magnam id quae.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 5bhZka1V64eg86afdvD3cEP'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/document-transmitteds/{document_transmitted}'
+    metadata:
+      groupName: 'Gestion des documents transmis'
+      groupDescription: |-
+
+        APIs pour la gestion des documents transmis
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Afficher un document transmis'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      document_transmitted:
+        name: document_transmitted
+        description: ''
+        required: true
+        example: omnis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      document_transmitted: omnis
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer e6k1E3g8dVD5hbZvaf4a6Pc'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/document-transmitteds/{document_transmitted}'
+    metadata:
+      groupName: 'Gestion des documents transmis'
+      groupDescription: |-
+
+        APIs pour la gestion des documents transmis
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mettre à jour un document transmis'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      document_transmitted:
+        name: document_transmitted
+        description: ''
+        required: true
+        example: inventore
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      document_transmitted: inventore
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: setvyur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Aut suscipit inventore cumque.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      label: setvyur
+      description: 'Aut suscipit inventore cumque.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ZEkf65dP6c1843ahevbDagV'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/document-transmitteds/{document_transmitted}'
+    metadata:
+      groupName: 'Gestion des documents transmis'
+      groupDescription: |-
+
+        APIs pour la gestion des documents transmis
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprimer un document transmis'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      document_transmitted:
+        name: document_transmitted
+        description: ''
+        required: true
+        example: eum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      document_transmitted: eum
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer e6Eh8acvD3k1V6Z54dagPbf'
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -1,0 +1,280 @@
+name: 'Gestion des types de quittances'
+description: |-
+
+  APIs pour la gestion des types de quittances
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/receipt-types
+    metadata:
+      groupName: 'Gestion des types de quittances'
+      groupDescription: |-
+
+        APIs pour la gestion des types de quittances
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lister tous les types de quittances'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Vg5cZ348avfhb61DEdkPea6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/receipt-types
+    metadata:
+      groupName: 'Gestion des types de quittances'
+      groupDescription: |-
+
+        APIs pour la gestion des types de quittances
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Ajouter un type de quittance'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: pkwxxnfdaaowvhrg
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Voluptate velit eius atque iusto illum molestiae sit.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      label: pkwxxnfdaaowvhrg
+      description: 'Voluptate velit eius atque iusto illum molestiae sit.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 5gEa8bP1c64fed3DvkZV6ah'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/receipt-types/{receiptType}'
+    metadata:
+      groupName: 'Gestion des types de quittances'
+      groupDescription: |-
+
+        APIs pour la gestion des types de quittances
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Afficher un type de quittance'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      receiptType:
+        name: receiptType
+        description: ''
+        required: true
+        example: quos
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      receiptType: quos
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer fhv364Egca6ZkDdPab15eV8'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/receipt-types/{receiptType}'
+    metadata:
+      groupName: 'Gestion des types de quittances'
+      groupDescription: |-
+
+        APIs pour la gestion des types de quittances
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mettre à jour un type de quittance'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      receiptType:
+        name: receiptType
+        description: ''
+        required: true
+        example: corrupti
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      receiptType: corrupti
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: ljiav
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Error consequatur aut voluptatem quisquam impedit asperiores.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      label: ljiav
+      description: 'Error consequatur aut voluptatem quisquam impedit asperiores.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer aE1kD3b4eP68dfhcZ65agVv'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/receipt-types/{receiptType}'
+    metadata:
+      groupName: 'Gestion des types de quittances'
+      groupDescription: |-
+
+        APIs pour la gestion des types de quittances
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprimer un type de quittance'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      receiptType:
+        name: receiptType
+        description: ''
+        required: true
+        example: explicabo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      receiptType: explicabo
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6d8P14fEkcaaeVgv3bDZ56h'
+    controller: null
+    method: null
+    route: null
+    custom: []

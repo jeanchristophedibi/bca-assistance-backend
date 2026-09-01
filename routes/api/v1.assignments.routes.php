@@ -1,0 +1,157 @@
+<?php
+
+use App\Http\Controllers\API\AssignmentController;
+use Illuminate\Support\Facades\Route;
+
+Route::middleware('auth:sanctum')->name('assignments.')->group(function () {
+    /** @uses AssignmentController::index */
+    Route::get('/', [AssignmentController::class, 'index'])->name('index');
+
+    /** @uses AssignmentController::store */
+    Route::post('/', [AssignmentController::class, 'store'])->name('store');
+    Route::post('/create-work-sheet/{assignment}', [AssignmentController::class, 'create_work_sheet'])->name('create-work-sheet');
+
+    /** @uses AssignmentController::send_work_sheet */
+    Route::post('/resend-work-sheet/{assignment}', [AssignmentController::class, 'resend_work_sheet'])->name('resend-work-sheet');
+
+    /** @uses AssignmentController::add_work_sheet_photo */
+    Route::post('/add-work-sheet-photo/{assignment}', [AssignmentController::class, 'add_work_sheet_photo'])->name('add-work-sheet-photo');
+
+    /** @uses AssignmentController::calculate */
+    Route::post('/calculate', [AssignmentController::class, 'calculate'])->name('calculate');
+
+    /** @uses AssignmentController::calculate_evaluation */
+    Route::post('/calculate-evaluation', [AssignmentController::class, 'calculate_evaluation'])->name('calculate-evaluation');
+
+    /** @uses AssignmentController::open */
+    Route::put('/open/{assignment}', [AssignmentController::class, 'open'])->name('open');
+
+    /** @uses AssignmentController::openByExpert */
+    Route::post('/open-by-expert', [AssignmentController::class, 'openByExpert'])->name('openByExpert');
+    
+    /** @uses AssignmentController::realize */
+    Route::put('/realize/{assignment}', [AssignmentController::class, 'realize'])->name('realize');
+
+    /** @uses AssignmentController::edit */
+    Route::put('/edit/{assignment}', [AssignmentController::class, 'edit'])->name('edit');
+
+    /** @uses AssignmentController::evaluate */
+    Route::put('/evaluate/{assignment}', [AssignmentController::class, 'evaluate'])->name('evaluate');
+
+    /** @uses AssignmentController::update */
+    Route::put('/update/{assignment}', [AssignmentController::class, 'update'])->name('update');
+
+    /** @uses AssignmentController::addInformation */
+    Route::put('/add-information/{assignment}', [AssignmentController::class, 'addInformation'])->name('addInformation');
+
+    /** @uses AssignmentController::updateRealized */
+    Route::put('/update-realize/{assignment}', [AssignmentController::class, 'updateRealize'])->name('update-realize');
+
+    /** @uses AssignmentController::validateQuoteByRepairer */
+    Route::put('/validate-quote-by-repairer/{assignment}', [AssignmentController::class, 'validateQuoteByRepairer'])->name('validateQuoteByRepairer');
+
+    /** @uses AssignmentController::unvalidateQuoteByRepairer */
+    Route::put('/unvalidate-quote-by-repairer/{assignment}', [AssignmentController::class, 'unvalidateQuoteByRepairer'])->name('unvalidateQuoteByRepairer');
+
+    /** @uses AssignmentController::validateQuoteByExpert */
+    Route::put('/validate-quote-by-expert/{assignment}', [AssignmentController::class, 'validateQuoteByExpert'])->name('validateQuoteByExpert');
+
+    /** @uses AssignmentController::unvalidateQuoteByExpert */
+    Route::put('/unvalidate-quote-by-expert/{assignment}', [AssignmentController::class, 'unvalidateQuoteByExpert'])->name('unvalidateQuoteByExpert');
+    
+    /** @uses AssignmentController::validateQuoteWithConditionsByExpert */
+    Route::put('/validate-quote-with-conditions-by-expert/{assignment}', [AssignmentController::class, 'validateQuoteWithConditionsByExpert'])->name('validateQuoteWithConditionsByExpert');
+
+    /** @uses AssignmentController::updateEdit */
+    Route::put('/update-edit/{assignment}', [AssignmentController::class, 'updateEdit'])->name('updateEdit');
+
+    /** @uses AssignmentController::validate */
+    Route::put('/validate-edition/{assignment}', [AssignmentController::class, 'validateEdition'])->name('validateEdition');
+
+    /** @uses AssignmentController::unvalidateEdition */
+    Route::put('/unvalidate-edition/{assignment}', [AssignmentController::class, 'unvalidateEdition'])->name('unvalidateEdition');
+
+    /** @uses AssignmentController::validateFirstCorrection */
+    Route::put('/validate-first-correction/{assignment}', [AssignmentController::class, 'validateFirstCorrection'])->name('validateFirstCorrection');
+
+    /** @uses AssignmentController::unvalidateFirstCorrection */
+    Route::put('/unvalidate-first-correction/{assignment}', [AssignmentController::class, 'unvalidateFirstCorrection'])->name('unvalidateFirstCorrection');
+
+    /** @uses AssignmentController::validateSecondCorrection */
+    Route::put('/validate-second-correction/{assignment}', [AssignmentController::class, 'validateSecondCorrection'])->name('validateSecondCorrection');
+
+    /** @uses AssignmentController::unvalidateSecondCorrection */
+    Route::put('/unvalidate-second-correction/{assignment}', [AssignmentController::class, 'unvalidateSecondCorrection'])->name('unvalidateSecondCorrection');
+
+    /** @uses AssignmentController::validate */
+    Route::put('/validate/{assignment}', [AssignmentController::class, 'validate'])->name('validate');
+
+    /** @uses AssignmentController::unvalidate */
+    Route::put('/unvalidate/{assignment}', [AssignmentController::class, 'unvalidate'])->name('unvalidate');
+
+    /** @uses AssignmentController::validateByRepairer */
+    Route::put('/validate-by-repairer/{assignment}', [AssignmentController::class, 'validateByRepairer'])->name('validateByRepairer');
+
+    /** @uses AssignmentController::unvalidateByRepairer */
+    Route::put('/unvalidate-by-repairer/{assignment}', [AssignmentController::class, 'unvalidateByRepairer'])->name('unvalidateByRepairer');
+
+    /** @uses AssignmentController::validateByExpert */
+    Route::put('/validate-by-expert/{assignment}', [AssignmentController::class, 'validateByExpert'])->name('validateByExpert');
+
+    /** @uses AssignmentController::unvalidateByExpert */
+    Route::put('/unvalidate-by-expert/{assignment}', [AssignmentController::class, 'unvalidateByExpert'])->name('unvalidateByExpert');
+
+    /** @uses AssignmentController::validateWorkSheetByExpert */
+    Route::put('/validate-work-sheet-by-expert/{assignment}', [AssignmentController::class, 'validateWorkSheetByExpert'])->name('validateWorkSheetByExpert');
+
+    /** @uses AssignmentController::show */
+    Route::get('/{assignment}', [AssignmentController::class, 'show'])->name('show');
+
+    /** @uses AssignmentController::close */
+    Route::put('/{assignment}/close', [AssignmentController::class, 'close'])->name('close');
+
+    /** @uses AssignmentController::classifyWithoutFurtherAction */
+    Route::put('/classify-without-further-action/{assignment}', [AssignmentController::class, 'classifyWithoutFurtherAction'])->name('classifyWithoutFurtherAction');
+
+    /** @uses AssignmentController::cancel */
+    Route::put('/{assignment}/cancel', [AssignmentController::class, 'cancel'])->name('cancel');
+
+    /** @uses AssignmentController::generate */
+    Route::put('/{assignment}/generate', [AssignmentController::class, 'generate'])->name('generate');
+
+    /** @uses AssignmentController::markAsPaid */
+    Route::put('mark-as-paid/{assignment}', [AssignmentController::class, 'markAsPaid'])->name('markAsPaid');
+
+    /** @uses AssignmentController::markAsUnpaid */
+    Route::put('mark-as-unpaid/{assignment}', [AssignmentController::class, 'markAsUnpaid'])->name('markAsUnpaid');
+
+    /** @uses AssignmentController::orderShocks */
+    Route::put('/{assignment}/order-shocks', [AssignmentController::class, 'orderShocks'])->name('order-shocks');
+
+    /** @uses AssignmentController::orderPhotos */
+    Route::put('/{assignment}/order-photos', [AssignmentController::class, 'orderPhotos'])->name('order-photos');
+
+    /** @uses AssignmentController::get_assignment_edition_time_to_expired */
+    Route::get('/get/assignment-edition-time-to-expired', [AssignmentController::class, 'get_assignment_edition_time_to_expired'])->name('get_assignment_edition_time_to_expired');
+
+    /** @uses AssignmentController::get_assignment_recovery_time_to_expired */
+    Route::get('/get/assignment-recovery-time-to-expired', [AssignmentController::class, 'get_assignment_recovery_time_to_expired'])->name('get_assignment_recovery_time_to_expired');
+
+    /** @uses AssignmentController::export */
+    Route::get('/get/export', [AssignmentController::class, 'export'])->name('export');
+
+    /** @uses AssignmentController::statistics */
+    Route::get('/get/statistics', [AssignmentController::class, 'statistics'])->name('statistics');
+
+    /** @uses AssignmentController::addComment */
+    Route::put('/add-comment/{assignment}', [AssignmentController::class, 'addComment'])->name('addComment');
+
+    /** @uses AssignmentController::destroy */
+    Route::delete('/{assignment}', [AssignmentController::class, 'destroy'])->name('destroy');
+
+    /** @uses AssignmentController::restore */
+    Route::post('/restore', [AssignmentController::class, 'restore'])->name('restore');
+
+    /** @uses AssignmentController::calculate_depreciation_rate */
+    Route::get('/calculate-depreciation-rate/{assignment}', [AssignmentController::class, 'calculate_depreciation_rate'])->name('calculate-depreciation-rate');
+}); 

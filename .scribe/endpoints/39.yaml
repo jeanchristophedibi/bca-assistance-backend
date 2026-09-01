@@ -1,0 +1,280 @@
+name: 'Gestion des types de peinture'
+description: |-
+
+  APIs pour la gestion des types de peinture
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/paint-types
+    metadata:
+      groupName: 'Gestion des types de peinture'
+      groupDescription: |-
+
+        APIs pour la gestion des types de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lister tous les types de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer k3PZDde1h6Vc65vaagfEb84'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/paint-types
+    metadata:
+      groupName: 'Gestion des types de peinture'
+      groupDescription: |-
+
+        APIs pour la gestion des types de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Ajouter un type de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: jtqzelnsgidnfxv
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Voluptatem facilis iusto voluptatem aut similique debitis.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      label: jtqzelnsgidnfxv
+      description: 'Voluptatem facilis iusto voluptatem aut similique debitis.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ghbvEaaZ415kd6ePf8Vc3D6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/paint-types/{paintType}'
+    metadata:
+      groupName: 'Gestion des types de peinture'
+      groupDescription: |-
+
+        APIs pour la gestion des types de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Afficher un type de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      paintType:
+        name: paintType
+        description: ''
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      paintType: et
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer d165bVch3akg486faeDEvZP'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/paint-types/{paintType}'
+    metadata:
+      groupName: 'Gestion des types de peinture'
+      groupDescription: |-
+
+        APIs pour la gestion des types de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mettre à jour un type de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      paintType:
+        name: paintType
+        description: ''
+        required: true
+        example: omnis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      paintType: omnis
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      label:
+        name: label
+        description: 'Le texte de value ne peut pas contenir plus de 255 caractères.'
+        required: true
+        example: derebmdoeatfdpud
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Possimus voluptates et et in recusandae.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      label: derebmdoeatfdpud
+      description: 'Possimus voluptates et et in recusandae.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Zk5bEh1PdDf864acVvae6g3'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/paint-types/{paintType}'
+    metadata:
+      groupName: 'Gestion des types de peinture'
+      groupDescription: |-
+
+        APIs pour la gestion des types de peinture
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprimer un type de peinture'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      paintType:
+        name: paintType
+        description: ''
+        required: true
+        example: sint
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      paintType: sint
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer V83d4habDEgPvc5Ze1fa6k6'
+    controller: null
+    method: null
+    route: null
+    custom: []

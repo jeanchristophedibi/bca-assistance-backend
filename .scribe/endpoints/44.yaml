@@ -1,0 +1,324 @@
+name: 'Gestion des honoraires'
+description: |-
+
+  APIs pour la gestion des honoraires
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/work-fees
+    metadata:
+      groupName: 'Gestion des honoraires'
+      groupDescription: |-
+
+        APIs pour la gestion des honoraires
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Lister tous les honoraires'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer kcZ6h14vdaE6eP5Daf38Vgb'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/work-fees
+    metadata:
+      groupName: 'Gestion des honoraires'
+      groupDescription: |-
+
+        APIs pour la gestion des honoraires
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Créer un honoraire'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      param_1:
+        name: param_1
+        description: ''
+        required: true
+        example: 95.44377135
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      param_2:
+        name: param_2
+        description: ''
+        required: true
+        example: 2.01429
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      param_3:
+        name: param_3
+        description: ''
+        required: true
+        example: 4.275309029
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      param_4:
+        name: param_4
+        description: ''
+        required: true
+        example: 0.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      param_1: 95.44377135
+      param_2: 2.01429
+      param_3: 4.275309029
+      param_4: 0.0
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 16k3eh5cZvEfV684dbgDaaP'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/work-fees/{workFee}'
+    metadata:
+      groupName: 'Gestion des honoraires'
+      groupDescription: |-
+
+        APIs pour la gestion des honoraires
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Afficher un honoraire'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      workFee:
+        name: workFee
+        description: ''
+        required: true
+        example: id
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      workFee: id
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6dhab864eEg5aZkDf1V3vcP'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/work-fees/{workFee}'
+    metadata:
+      groupName: 'Gestion des honoraires'
+      groupDescription: |-
+
+        APIs pour la gestion des honoraires
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mettre à jour un honoraire'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      workFee:
+        name: workFee
+        description: ''
+        required: true
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      workFee: rerum
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      param_1:
+        name: param_1
+        description: ''
+        required: true
+        example: 73.911
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      param_2:
+        name: param_2
+        description: ''
+        required: true
+        example: 36772.23
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      param_3:
+        name: param_3
+        description: ''
+        required: true
+        example: 1174.1
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      param_4:
+        name: param_4
+        description: ''
+        required: true
+        example: 1558.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      param_1: 73.911
+      param_2: 36772.23
+      param_3: 1174.1
+      param_4: 1558.0
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer k5ehvd6463fVa8aZEDPb1gc'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/work-fees/{workFee}'
+    metadata:
+      groupName: 'Gestion des honoraires'
+      groupDescription: |-
+
+        APIs pour la gestion des honoraires
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprimer un honoraire'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      workFee:
+        name: workFee
+        description: ''
+        required: true
+        example: illum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      workFee: illum
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1366fVkvDEZage8hbd5P4ca'
+    controller: null
+    method: null
+    route: null
+    custom: []

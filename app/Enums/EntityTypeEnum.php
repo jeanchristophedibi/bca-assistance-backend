@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Enums;
+
+use Essa\APIToolKit\Enum\Enum;
+use App\Concerns\UsefulEnums;
+
+enum EntityTypeEnum: string
+{
+    use UsefulEnums;
+
+    case MAIN_ORG = 'main_org';
+    case INSURER = 'insurer';
+    case BROKER = 'broker';
+    case REPAIRER = 'repairer';
+
+}
