@@ -17,6 +17,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Assignment\AddCommentAssignmentRequest;
 use App\Http\Requests\Assignment\CancelAssignmentRequest;
 use App\Http\Requests\Assignment\CloseAssignmentRequest;
+use App\Http\Requests\Assignment\PlanAssignmentRequest;
 use App\Http\Requests\Assignment\CalculateAssignmentRequest;
 use App\Http\Requests\Assignment\CalculateEvaluationAssignmentRequest;
 use App\Http\Requests\Assignment\CreateAssignmentRequest;
@@ -2784,6 +2785,42 @@ class AssignmentController extends Controller
         }
 
         return $this->responseSuccess('Dossier ouvert avec succès', new AssignmentResource($assignment));
+    }
+
+    /**
+     * Planifier l'expertise d'un dossier ouvert : date, heure, lieu et expert
+     *
+     * @authenticated
+     */
+    public function plan(PlanAssignmentRequest $request, $id): JsonResponse
+    {
+        $assignment = Assignment::findOrFail($id);
+
+        if($assignment->status_id != Status::where('code', StatusEnum::OPENED)->first()->id){
+            return $this->responseUnprocessable('Seul un dossier ouvert peut être planifié.', null);
+        }
+
+        DB::transaction(function () use ($request, $assignment) {
+            $assignment->update([
+                'expertise_date' => $request->expertise_date,
+                'expertise_time' => $request->expertise_time,
+                'expertise_place' => $request->expertise_place,
+                'updated_by' => auth()->user()->id,
+            ]);
+
+            // Un seul expert responsable du créneau : il remplace les experts déjà assignés.
+            if($request->filled('expert_id')){
+                // Suppression définitive : la relation `experts` ne filtre pas les lignes supprimées en douceur.
+                AssignmentExpert::where('assignment_id', $assignment->id)->forceDelete();
+                AssignmentExpert::create([
+                    'assignment_id' => $assignment->id,
+                    'expert_id' => $request->expert_id,
+                    'date' => $request->expertise_date,
+                ]);
+            }
+        });
+
+        return $this->responseSuccess('Expertise planifiée avec succès', new AssignmentResource($assignment->fresh(['status', 'experts'])));
     }
 
     /**

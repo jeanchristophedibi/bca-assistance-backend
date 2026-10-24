@@ -14,6 +14,7 @@ use Essa\APIToolKit\Api\ApiResponse;
 use App\Jobs\GenerateAssignmentRequestPdfJob;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use App\Http\Resources\AssignmentRequest\AssignmentRequestResource;
+use App\Http\Requests\AssignmentRequest\AcceptAssignmentRequestRequest;
 use App\Http\Requests\AssignmentRequest\CancelAssignmentRequestRequest;
 use App\Http\Requests\AssignmentRequest\CreateAssignmentRequestRequest;
 use App\Http\Requests\AssignmentRequest\RejectAssignmentRequestRequest;
@@ -161,7 +162,7 @@ class AssignmentRequestController extends Controller
     {
         $assignmentRequest = AssignmentRequest::accessibleBy(auth()->user())->findOrFail($id);
 
-        return $this->responseSuccess(null, new AssignmentRequestResource($assignmentRequest->load('status', 'deletedBy', 'client', 'vehicle', 'repairers', 'createdBy', 'updatedBy', 'cancelledBy', 'rejectedBy', 'photos')));
+        return $this->responseSuccess(null, new AssignmentRequestResource($assignmentRequest->load('status', 'deletedBy', 'client', 'vehicle', 'repairers', 'createdBy.entity', 'updatedBy', 'cancelledBy', 'rejectedBy', 'acceptedBy', 'assignment.status', 'photos')));
     }
 
     /**
@@ -181,6 +182,30 @@ class AssignmentRequestController extends Controller
         $assignmentRequest->syncRepairers($repairers, auth()->id());
 
         return $this->responseSuccess('AssignmentRequest updated Successfully', new AssignmentRequestResource($assignmentRequest->load('repairers', 'status', 'client', 'vehicle')));
+    }
+
+    /**
+     * Accepter la demande d'expertise : la relie au dossier créé à partir d'elle
+     *
+     * @authenticated
+     */
+    public function accept(AcceptAssignmentRequestRequest $request, $id): JsonResponse
+    {
+        $assignmentRequest = AssignmentRequest::accessibleBy(auth()->user())->findOrFail($id);
+
+        if($assignmentRequest->status_id != Status::where('code', StatusEnum::PENDING)->first()->id){
+            return $this->responseUnprocessable('La demande d\'expertise n\'est pas en attente.', null);
+        }
+
+        $assignmentRequest->update([
+            'assignment_id' => $request->assignment_id,
+            'accepted_by' => auth()->user()->id,
+            'accepted_at' => Carbon::now(),
+            'status_id' => Status::where('code', StatusEnum::ACCEPTED)->first()->id,
+            'updated_by' => auth()->user()->id,
+        ]);
+
+        return $this->responseSuccess('Demande d\'expertise acceptée avec succès', new AssignmentRequestResource($assignmentRequest->load('status', 'assignment.status', 'acceptedBy')));
     }
 
     /**

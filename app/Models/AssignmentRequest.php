@@ -52,6 +52,22 @@ class AssignmentRequest extends Model
     }
 
     /**
+     * Get the assignment created when this request was accepted
+     */
+    public function assignment(): BelongsTo
+    {
+        return $this->belongsTo(Assignment::class, 'assignment_id');
+    }
+
+    /**
+     * Get the user who accepted this assignment request
+     */
+    public function acceptedBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'accepted_by');
+    }
+
+    /**
      * Get the user who rejected this assignment request
      */
     public function rejectedBy(): BelongsTo

@@ -29,7 +29,6 @@ use App\Http\Resources\GeneralState\GeneralStateResource;
 use App\Http\Resources\Ascertainment\AscertainmentResource;
 use App\Http\Resources\ExpertiseType\ExpertiseTypeResource;
 use App\Http\Resources\AssignmentType\AssignmentTypeResource;
-use App\Http\Resources\AssignmentExpert\AssignmentExpertResource;
 use App\Http\Resources\AssignmentReport\AssignmentReportResource;
 use App\Http\Resources\DocumentTransmitted\DocumentTransmittedResource;
 use App\Http\Resources\TechnicalConclusion\TechnicalConclusionResource;
@@ -82,6 +81,7 @@ class AssignmentResource extends JsonResource
             'claim_starts_at' => $this->claim_starts_at,
             'claim_ends_at' => $this->claim_ends_at,
             'expertise_date' => $this->expertise_date,
+            'expertise_time' => $this->expertise_time ? substr($this->expertise_time, 0, 5) : null,
             'expertise_place' => $this->expertise_place,
             'received_at' => $this->received_at,
             'repairer_id' => $this->relationLoaded('repairers') ? $this->repairers->first()?->id : null,
@@ -187,7 +187,12 @@ class AssignmentResource extends JsonResource
             'qr_code' => new QrCodeResource($this->whenLoaded('qrCode')),
             'client' => new ClientResource($this->whenLoaded('client')),
             'status' => new StatusResource($this->whenLoaded('status')),
-            'experts' => AssignmentExpertResource::collection($this->whenLoaded('experts')),
+            // La relation `experts` renvoie des utilisateurs (table pivot assignment_experts) :
+            // on expose l'expert par son nom, dans la forme { id, expert: { id, name } }.
+            'experts' => $this->whenLoaded('experts', fn () => $this->experts->map(fn ($expert) => [
+                'id' => $expert->id,
+                'expert' => ['id' => $expert->id, 'name' => $expert->name],
+            ])->values()),
             'created_by' => new UserResource($this->whenLoaded('createdBy')),
             'updated_by' => new UserResource($this->whenLoaded('updatedBy')), 
             'deleted_by' => new UserResource($this->whenLoaded('deletedBy')),

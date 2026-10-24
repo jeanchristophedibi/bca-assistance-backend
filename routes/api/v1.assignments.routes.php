@@ -29,6 +29,9 @@ Route::middleware('auth:sanctum')->name('assignments.')->group(function () {
     /** @uses AssignmentController::openByExpert */
     Route::post('/open-by-expert', [AssignmentController::class, 'openByExpert'])->name('openByExpert');
     
+    /** @uses AssignmentController::plan */
+    Route::put('/plan/{assignment}', [AssignmentController::class, 'plan'])->name('plan');
+
     /** @uses AssignmentController::realize */
     Route::put('/realize/{assignment}', [AssignmentController::class, 'realize'])->name('realize');
 
