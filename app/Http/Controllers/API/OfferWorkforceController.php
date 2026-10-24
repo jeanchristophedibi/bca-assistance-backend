@@ -298,7 +298,7 @@ class OfferWorkforceController extends Controller
             return $this->responseUnprocessable("Impossible d'ajouter une main-d'oeuvre", null);
         }
 
-        $nb_paint = OfferShockWork::where(['offer_shock_id' => $request->offer_shock_id, 'paint' => 1])->sum('paint');
+        $nb_paint = OfferShockWork::where(['offer_shock_id' => $request->offer_shock_id, 'paint' => 1])->count();
 
         $workforces = $request->get('workforces');
 
@@ -401,7 +401,7 @@ class OfferWorkforceController extends Controller
             return $this->responseUnprocessable("Impossible de mettre à jour une main-d'oeuvre", null);
         }
 
-        $nb_paint = OfferShockWork::where(['offer_shock_id' => $workforce->offerShock->id, 'paint' => 1])->sum('paint');
+        $nb_paint = OfferShockWork::where(['offer_shock_id' => $workforce->offerShock->id, 'paint' => 1])->count();
 
         if($workforce->workforce_type_id == WorkforceType::where('code', WorkforceTypeEnum::PAINT)->first()->id){
             if($nb_paint == 1){
@@ -490,7 +490,7 @@ class OfferWorkforceController extends Controller
     {
         $workforces = OfferWorkforce::where(['offer_shock_id' => $shock_id])->get();
 
-        $nb_paint = OfferShockWork::where(['offer_shock_id' => $shock_id, 'paint' => 1])->sum('paint');
+        $nb_paint = OfferShockWork::where(['offer_shock_id' => $shock_id, 'paint' => 1])->count();
 
         if($workforces){
             foreach($workforces as $item){
@@ -576,7 +576,7 @@ class OfferWorkforceController extends Controller
         $total_workforce_amount_tax = OfferWorkforce::where('offer_shock_id', $shock->id)->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->sum('amount_tax');
         $total_workforce_amount = OfferWorkforce::where('offer_shock_id', $shock->id)->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->sum('amount');
 
-        $nb_paint = OfferShockWork::where(['offer_shock_id' => $shock->id, 'paint' => 1])->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->sum('paint');
+        $nb_paint = OfferShockWork::where(['offer_shock_id' => $shock->id, 'paint' => 1])->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->count();
 
         if($nb_paint == 0){
             $paint_product_price = null;

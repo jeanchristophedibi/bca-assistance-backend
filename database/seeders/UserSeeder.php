@@ -123,7 +123,7 @@ class UserSeeder extends Seeder
             'current_role_id' => Role::firstWhere('name', \App\Enums\RoleEnum::OPENER)->id,
             'status_id' => Status::firstWhere('code', \App\Enums\StatusEnum::ACTIVE)->id,
         ]);
-        
+
         User::create([
             'username' => 'U012',
             'code' => 'U012',
@@ -379,7 +379,7 @@ class UserSeeder extends Seeder
             'status_id' => Status::firstWhere('code', \App\Enums\StatusEnum::ACTIVE)->id,
         ]);
 
-        
+
         User::create([
             'username' => 'U033',
             'code' => 'U033',
@@ -443,7 +443,7 @@ class UserSeeder extends Seeder
 
         // Assign roles to all users
         $users = User::all();
-            
+
         foreach ($users as $user) {
             app(PermissionRegistrar::class)->setPermissionsTeamId($user->current_role_id);
             $role = Role::find($user->current_role_id);

@@ -4,9 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use App\Support\ChecksForeignKeyExists;
 
 return new class extends Migration
 {
+    use ChecksForeignKeyExists;
+
     /**
      * Run the migrations.
      */
@@ -208,14 +211,7 @@ return new class extends Migration
         ];
 
         foreach ($foreignKeyColumns as $column) {
-            $foreignKeys = DB::select("
-                SELECT CONSTRAINT_NAME 
-                FROM information_schema.KEY_COLUMN_USAGE 
-                WHERE TABLE_SCHEMA = DATABASE() 
-                AND TABLE_NAME = 'assignments' 
-                AND COLUMN_NAME = ? 
-                AND REFERENCED_TABLE_NAME IS NOT NULL
-            ", [$column]);
+            $foreignKeys = $this->foreignKeyExists('assignments', $column);
 
             if (empty($foreignKeys)) {
                 Schema::table('assignments', function (Blueprint $table) use ($column) {
@@ -253,17 +249,10 @@ return new class extends Migration
             ];
 
             foreach ($foreignKeyColumns as $column) {
-                $foreignKeys = DB::select("
-                    SELECT CONSTRAINT_NAME 
-                    FROM information_schema.KEY_COLUMN_USAGE 
-                    WHERE TABLE_SCHEMA = DATABASE() 
-                    AND TABLE_NAME = 'assignments' 
-                    AND COLUMN_NAME = ? 
-                    AND REFERENCED_TABLE_NAME IS NOT NULL
-                ", [$column]);
+                $foreignKeys = $this->foreignKeyExists('assignments', $column);
 
                 if (!empty($foreignKeys)) {
-                    $constraintName = $foreignKeys[0]->CONSTRAINT_NAME;
+                    $constraintName = $foreignKeys[0]->constraint_name;
                     $table->dropForeign($constraintName);
                 }
             }

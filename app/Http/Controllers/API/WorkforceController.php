@@ -295,7 +295,7 @@ class WorkforceController extends Controller
             return $this->responseUnprocessable("Impossible d'ajouter une main-d'oeuvre", null);
         }
 
-        $nb_paint = ShockWork::where(['shock_id' => $request->shock_id, 'paint' => 1])->sum('paint');
+        $nb_paint = ShockWork::where(['shock_id' => $request->shock_id, 'paint' => 1])->count();
 
         $workforces = $request->get('workforces');
 
@@ -429,7 +429,7 @@ class WorkforceController extends Controller
             return $this->responseUnprocessable("Impossible de mettre à jour une main-d'oeuvre", null);
         }
 
-        $nb_paint = ShockWork::where(['shock_id' => $workforce->shock_id, 'paint' => 1])->sum('paint');
+        $nb_paint = ShockWork::where(['shock_id' => $workforce->shock_id, 'paint' => 1])->count();
 
         if($workforce->workforce_type_id == WorkforceType::where('code', WorkforceTypeEnum::PAINT)->first()->id){
             if($nb_paint == 1){
@@ -541,7 +541,7 @@ class WorkforceController extends Controller
     {
         $workforces = Workforce::where(['shock_id' => $shock_id])->get();
 
-        $nb_paint = ShockWork::where(['shock_id' => $shock_id, 'paint' => 1])->sum('paint');
+        $nb_paint = ShockWork::where(['shock_id' => $shock_id, 'paint' => 1])->count();
 
         if($workforces){
             foreach($workforces as $item){
@@ -627,7 +627,7 @@ class WorkforceController extends Controller
         $total_workforce_amount_tax = Workforce::where('shock_id', $shock->id)->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->sum('amount_tax');
         $total_workforce_amount = Workforce::where('shock_id', $shock->id)->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->sum('amount');
 
-        $nb_paint = ShockWork::where(['shock_id' => $shock->id, 'paint' => 1])->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->sum('paint');
+        $nb_paint = ShockWork::where(['shock_id' => $shock->id, 'paint' => 1])->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->count();
 
         if($nb_paint == 0){
             $paint_product_price = null;

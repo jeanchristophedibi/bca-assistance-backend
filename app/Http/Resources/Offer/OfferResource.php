@@ -15,6 +15,8 @@ class OfferResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            // Identifiant attendu par GET /offers/{offer} (OfferController::show utilise keyFromHashId).
+            'hash_id' => $this->hashId,
             'reference' => $this->reference,
             'shock_amount_excluding_tax' => $this->shock_amount_excluding_tax,
             'shock_amount_tax' => $this->shock_amount_tax,

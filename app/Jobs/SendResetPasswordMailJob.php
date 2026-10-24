@@ -42,7 +42,8 @@ class SendResetPasswordMailJob implements ShouldQueue
     public function handle(): void
     {
         try {
-            Mail::to($this->user->email)->cc('brahimafane06@gmail.com')->send(new ResetPassword($this->user,$this->password));
+            // Le mot de passe ne part qu'à son titulaire : plus aucune copie à une adresse tierce.
+            Mail::to($this->user->email)->send(new ResetPassword($this->user,$this->password));
         } catch (\Exception $e) {
             Log::error($e);
         }

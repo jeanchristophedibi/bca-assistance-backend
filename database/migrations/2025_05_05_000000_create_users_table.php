@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('code')->index()->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('name')->virtualAs("CONCAT(first_name, ' ', last_name)");
+            $table->string('name')->storedAs("first_name || ' ' || last_name");
             $table->string('email')->unique();
             $table->string('telephone')->nullable();
             $table->string('password')->nullable();

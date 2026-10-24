@@ -35,7 +35,7 @@ class ComparisonController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        $comparisons = Comparison::with(['assignment', 'assignment.expertFirm', 'assignment.insurer', 'assignment.repairers', 'status','offers'])
+        $comparisons = Comparison::with(['assignment', 'assignment.insurer', 'assignment.repairers', 'status','offers'])
             ->accessibleBy(auth()->user())
             ->when(request()->filled('assignment_id'), function ($query) {
                 $query->where('assignment_id', Assignment::keyFromHashId(request()->assignment_id));
@@ -93,7 +93,7 @@ class ComparisonController extends Controller
      */
     public function show($id): JsonResponse
     {
-        $comparison = Comparison::accessibleBy(auth()->user())->with(['assignment', 'assignment.expertFirm', 'assignment.insurer', 'assignment.repairers', 'status','offers'])->findOrFail(Comparison::keyFromHashId($id));
+        $comparison = Comparison::accessibleBy(auth()->user())->with(['assignment', 'assignment.insurer', 'assignment.repairers', 'status','offers'])->findOrFail(Comparison::keyFromHashId($id));
 
         return $this->responseSuccess(null, new ComparisonResource($comparison));
     }

@@ -201,7 +201,7 @@ class OfferShockController extends Controller
         
                 }
 
-                $nb_paint = OfferShockWork::where(['offer_shock_id' => $shock->id, 'paint' => 1])->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->sum('paint');
+                $nb_paint = OfferShockWork::where(['offer_shock_id' => $shock->id, 'paint' => 1])->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->count();
                 $all_paint = false;
     
                 if(isset($data['workforces']) && count($data['workforces']) > 0){

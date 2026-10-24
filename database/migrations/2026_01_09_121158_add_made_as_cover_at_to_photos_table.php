@@ -4,9 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use App\Support\ChecksForeignKeyExists;
 
 return new class extends Migration
 {
+    use ChecksForeignKeyExists;
+
     /**
      * Run the migrations.
      */
@@ -22,14 +25,7 @@ return new class extends Migration
         });
 
         // Add foreign key constraint if it doesn't exist
-        $foreignKeys = DB::select("
-            SELECT CONSTRAINT_NAME 
-            FROM information_schema.KEY_COLUMN_USAGE 
-            WHERE TABLE_SCHEMA = DATABASE() 
-            AND TABLE_NAME = 'photos' 
-            AND COLUMN_NAME = 'assignment_request_id' 
-            AND REFERENCED_TABLE_NAME IS NOT NULL
-        ");
+        $foreignKeys = $this->foreignKeyExists('photos', 'assignment_request_id');
 
         if (empty($foreignKeys)) {
             Schema::table('photos', function (Blueprint $table) {
@@ -48,17 +44,10 @@ return new class extends Migration
     {
         Schema::table('photos', function (Blueprint $table) {
             // Drop foreign key first if it exists
-            $foreignKeys = DB::select("
-                SELECT CONSTRAINT_NAME 
-                FROM information_schema.KEY_COLUMN_USAGE 
-                WHERE TABLE_SCHEMA = DATABASE() 
-                AND TABLE_NAME = 'photos' 
-                AND COLUMN_NAME = 'assignment_request_id' 
-                AND REFERENCED_TABLE_NAME IS NOT NULL
-            ");
+            $foreignKeys = $this->foreignKeyExists('photos', 'assignment_request_id');
 
             if (!empty($foreignKeys)) {
-                $constraintName = $foreignKeys[0]->CONSTRAINT_NAME;
+                $constraintName = $foreignKeys[0]->constraint_name;
                 $table->dropForeign($constraintName);
             }
             // Drop columns if they exist

@@ -215,7 +215,8 @@ class UserController extends Controller
 
             if($user){
 
-                Mail::to($user->email)->cc('brahimafane06@gmail.com')->send(new ResetPassword($user->email,$password));
+                // Le mot de passe ne part qu'à son titulaire : plus aucune copie à une adresse tierce.
+                Mail::to($user->email)->send(new ResetPassword($user->email,$password));
 
 
                 return $this->responseSuccess('Compte réinitialisé avec succès.', new UserResource($user));
@@ -285,7 +286,8 @@ class UserController extends Controller
         $pass = array(); //remember to declare $pass as an array
         $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
         for ($i = 0; $i < 12; $i++) {
-            $n = rand(0, $alphaLength);
+            // Générateur cryptographique : rand() est prévisible, inadapté à un mot de passe.
+            $n = random_int(0, $alphaLength);
             $pass[] = $alphabet[$n];
         }
         return implode($pass); //turn the array into a string

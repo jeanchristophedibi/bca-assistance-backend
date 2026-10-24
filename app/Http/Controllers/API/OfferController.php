@@ -55,7 +55,7 @@ class OfferController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        $offers = Offer::with(['comparison', 'comparison.assignment', 'comparison.assignment.expertFirm', 'comparison.assignment.insurer', 'repairer', 'status'])
+        $offers = Offer::with(['comparison', 'comparison.assignment', 'comparison.assignment.insurer', 'repairer', 'status'])
             ->accessibleBy(auth()->user())
             ->when(request()->filled('comparison_id'), function ($query) {
                 $query->where('comparison_id', Comparison::keyFromHashId(request()->comparison_id));
@@ -219,7 +219,7 @@ class OfferController extends Controller
         
                 }
 
-                $nb_paint = OfferShockWork::where(['offer_shock_id' => $shock->id, 'paint' => 1])->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->sum('paint');
+                $nb_paint = OfferShockWork::where(['offer_shock_id' => $shock->id, 'paint' => 1])->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->count();
                 $all_paint = false;
     
                 $workforces = Workforce::where('shock_id', $data->id)->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->get();
@@ -394,7 +394,7 @@ class OfferController extends Controller
      */
     public function show($id): JsonResponse
     {
-        $offer = Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.expertFirm', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks', 'offerShocks.shockPoint', 'offerShocks.paintType', 'offerShocks.hourlyRate', 'offerShocks.status', 'offerShocks.offerShockWorks', 'offerShocks.offerShockWorks.supply', 'offerShocks.offerWorkforces', 'offerShocks.offerWorkforces.workforceType'])->findOrFail(Offer::keyFromHashId($id));
+        $offer = Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks', 'offerShocks.shockPoint', 'offerShocks.paintType', 'offerShocks.hourlyRate', 'offerShocks.status', 'offerShocks.offerShockWorks', 'offerShocks.offerShockWorks.supply', 'offerShocks.offerWorkforces', 'offerShocks.offerWorkforces.workforceType'])->findOrFail(Offer::keyFromHashId($id));
 
         return $this->responseSuccess(null, new OfferResource($offer));
     }
@@ -406,7 +406,7 @@ class OfferController extends Controller
      */
     public function update(UpdateOfferRequest $request, $id): JsonResponse
     {
-        $offer = Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.expertFirm', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks'])->findOrFail(Offer::keyFromHashId($id));
+        $offer = Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks'])->findOrFail(Offer::keyFromHashId($id));
 
         return $this->responseSuccess('Offre mise à jour avec succès', new OfferResource($offer));
     }
@@ -418,7 +418,7 @@ class OfferController extends Controller
      */
     public function send($id): JsonResponse
     {
-        $offer = Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.expertFirm', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks'])->findOrFail(Offer::keyFromHashId($id));
+        $offer = Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks'])->findOrFail(Offer::keyFromHashId($id));
 
         $offer->update([
             'status_id' => Status::where('code', StatusEnum::PENDING)->first()->id,
@@ -435,9 +435,9 @@ class OfferController extends Controller
      */
     public function accept($id): JsonResponse
     {
-        $offer = Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.expertFirm', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks'])->findOrFail(Offer::keyFromHashId($id));
+        $offer = Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks'])->findOrFail(Offer::keyFromHashId($id));
 
-        Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.expertFirm', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks'])
+        Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks'])
                 ->where('comparison_id',$offer->comparison_id)
                 ->where('id','!=',$offer->id)
                 ->update([
@@ -468,7 +468,7 @@ class OfferController extends Controller
      */
     public function destroy($id): JsonResponse
     {
-        $offer = Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.expertFirm', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks'])->findOrFail(Offer::keyFromHashId($id));
+        $offer = Offer::accessibleBy(auth()->user())->with(['comparison', 'comparison.assignment', 'comparison.assignment.insurer', 'repairer', 'status', 'offerShocks'])->findOrFail(Offer::keyFromHashId($id));
         $offer->update([
             'deleted_by' => auth()->user()->id,
             'deleted_at' => Carbon::now(),

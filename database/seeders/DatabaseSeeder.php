@@ -53,5 +53,10 @@ class DatabaseSeeder extends Seeder
             UserActionTypeSeeder::class,
             AppSettingSeeder::class,
         ]);
+
+        // Données de démonstration (dossiers, clients, factures…) : SEED_DEMO_DATA=true
+        if (filter_var(env('SEED_DEMO_DATA', false), FILTER_VALIDATE_BOOLEAN)) {
+            $this->call(DemoSeeder::class);
+        }
     }
 }

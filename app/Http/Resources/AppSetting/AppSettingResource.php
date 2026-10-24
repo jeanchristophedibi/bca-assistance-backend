@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\AppSetting;
 
+use App\Http\Resources\Status\StatusResource;
+use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AppSettingResource extends JsonResource

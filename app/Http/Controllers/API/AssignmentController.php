@@ -15,6 +15,8 @@ use App\Enums\StatusEnum;
 use App\Enums\WorkforceTypeEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Assignment\AddCommentAssignmentRequest;
+use App\Http\Requests\Assignment\CancelAssignmentRequest;
+use App\Http\Requests\Assignment\CloseAssignmentRequest;
 use App\Http\Requests\Assignment\CalculateAssignmentRequest;
 use App\Http\Requests\Assignment\CalculateEvaluationAssignmentRequest;
 use App\Http\Requests\Assignment\CreateAssignmentRequest;
@@ -1865,7 +1867,7 @@ class AssignmentController extends Controller
      */
     public function store(CreateAssignmentRequest $request): JsonResponse
     {
-        if($request->assignment_type_id != AssignmentType::where('code', AssignmentTypeEnum::INSURER)->first()->id){
+        if($request->assignment_type_id != AssignmentType::where('code', AssignmentTypeEnum::INSURER)->first()?->id){
             $now = Carbon::now();
             $annee = date("Y");
             $mois_jour_heure = date("mdH");
@@ -1893,7 +1895,7 @@ class AssignmentController extends Controller
                 $last_assignment = Assignment::where('created_at', 'like', Carbon::now()->format('Y-m').'%')->where('assignment_type_id', $request->assignment_type_id);
             }
             
-            if(AssignmentTypeEnum::INSURER->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::INSURER)->first()->id){
+            if(AssignmentTypeEnum::INSURER->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::INSURER)->first()?->id){
                 $latest_assignment = Assignment::join('entities', 'assignments.insurer_id', '=', 'entities.id')
                                     ->where('reference_updated_at', 'like', Carbon::now()->format('Y-m').'%')->where('assignment_type_id', $request->assignment_type_id)->where(function($query) use ($request, $insurer){
                                         $query->where(['insurer_id' => $insurer->id])->orWhere(['broker_id' => $request->insurer_id]);
@@ -1961,7 +1963,7 @@ class AssignmentController extends Controller
                     }
                 }
             } else {
-                if(AssignmentTypeEnum::INSURER->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::INSURER)->first()->id){
+                if(AssignmentTypeEnum::INSURER->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::INSURER)->first()?->id){
                     if(EntityCodeEnum::NSIA->value &&$request->insurer_id == Entity::where('code', EntityCodeEnum::NSIA)->first()->id){
                         $reference = 'G00001'.'-'.$suffix;
                     }
@@ -2067,19 +2069,19 @@ class AssignmentController extends Controller
                     }
                 }
 
-                if(AssignmentTypeEnum::PARTICULAR && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::PARTICULAR)->first()->id){
+                if(AssignmentTypeEnum::PARTICULAR && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::PARTICULAR)->first()?->id){
                     $reference = 'PC00001'.'-'.$suffix;
                 }
         
-                if(AssignmentTypeEnum::TAXI->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::TAXI)->first()->id){
+                if(AssignmentTypeEnum::TAXI->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::TAXI)->first()?->id){
                     $reference = 'TA00001'.'-'.$suffix;
                 }
         
-                if(AssignmentTypeEnum::EVALUATION->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::EVALUATION)->first()->id){
+                if(AssignmentTypeEnum::EVALUATION->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::EVALUATION)->first()?->id){
                     $reference = 'EV00001'.'-'.$suffix;
                 }
 
-                if(AssignmentTypeEnum::AGAINST_EXPERTISE->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::AGAINST_EXPERTISE)->first()->id){
+                if(AssignmentTypeEnum::AGAINST_EXPERTISE->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::AGAINST_EXPERTISE)->first()?->id){
                     $reference = 'CE00001'.'-'.$suffix;
                 }
 
@@ -2448,7 +2450,7 @@ class AssignmentController extends Controller
                 $reference = 'EV00001'.'-'.$suffix;
             }
 
-            if(AssignmentTypeEnum::AGAINST_EXPERTISE->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::AGAINST_EXPERTISE)->first()->id){
+            if(AssignmentTypeEnum::AGAINST_EXPERTISE->value && $request->assignment_type_id == AssignmentType::where('code', AssignmentTypeEnum::AGAINST_EXPERTISE)->first()?->id){
                 $reference = 'CE00001'.'-'.$suffix;
             }
         }
@@ -3032,7 +3034,7 @@ class AssignmentController extends Controller
         
                 }
 
-                $nb_paint = ShockWork::where(['shock_id' => $shock->id, 'paint' => 1])->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->sum('paint');
+                $nb_paint = ShockWork::where(['shock_id' => $shock->id, 'paint' => 1])->where('status_id', Status::where('code', StatusEnum::ACTIVE)->first()->id)->count();
 
                 $total_nb_hours = 0;
                 $all_paint = false;

@@ -476,7 +476,7 @@ class PaymentController extends Controller
         $receipt_amount = Receipt::where('assignment_id', $request->assignment_id)->sum('amount');
         $payment_amount = Payment::where('assignment_id', $request->assignment_id)->sum('amount');
         if($receipt_amount > 0){
-            if($receipt_amount <= $payment_amount && $assignment->assignmentType->code == AssignmentTypeEnum::INSURER && $assignment->status_id == Status::where('code', StatusEnum::VALIDATED)->first()->id){
+            if($receipt_amount <= $payment_amount && $assignment->assignmentType->code == AssignmentTypeEnum::INSURER->value && $assignment->status_id == Status::where('code', StatusEnum::VALIDATED)->first()->id){
                 $assignment->update([
                     'status_id' => Status::where('code', StatusEnum::PAID)->first()->id,
                 ]);

@@ -15,4 +15,14 @@ class UserFilters extends QueryFilters
 
     protected array $columnSearch = ['username', 'email', 'last_name', 'first_name'];
 
+    /* Filtres des chiffres clés de la page Utilisateurs (état du compte, profil). */
+    public function status_id($value): void
+    {
+        $this->builder->whereIn('users.status_id', array_filter(explode(',', (string) $value)));
+    }
+
+    public function current_role_id($value): void
+    {
+        $this->builder->whereIn('users.current_role_id', array_filter(explode(',', (string) $value)));
+    }
 }

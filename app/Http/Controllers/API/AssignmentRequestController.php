@@ -41,7 +41,8 @@ class AssignmentRequestController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        $assignmentRequests = AssignmentRequest::with('status', 'deletedBy', 'client', 'vehicle', 'repairers', 'createdBy', 'updatedBy')
+        $assignmentRequests = AssignmentRequest::with('status', 'deletedBy', 'client', 'vehicle.brand', 'vehicle.vehicleModel', 'repairers', 'createdBy', 'updatedBy')
+                                    ->withCount('photos')
                                     ->accessibleBy(auth()->user())
                                     ->useFilters()
                                     ->latest('created_at')
