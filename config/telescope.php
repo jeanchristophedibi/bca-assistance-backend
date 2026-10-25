@@ -119,7 +119,9 @@ return [
     ],
 
     'ignore_commands' => [
-        //
+        // Hors local, le filtre interroge `telescope_monitoring` : sur une base neuve la
+        // table n'existe pas encore et l'erreur avalée annule la transaction (Postgres).
+        'migrate',
     ],
 
     /*
